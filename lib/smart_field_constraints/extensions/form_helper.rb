@@ -24,7 +24,7 @@ module PluginAWeek #:nodoc:
         private
           def add_smart_constraints(options)
             options.stringify_keys!
-            if object && max_length = object.class.smart_length_constraints[method_name] || object.class.columns_hash[method_name].limit
+            if object && max_length = (object.class.smart_length_constraints[method_name] || (column = object.class.columns_hash[method_name]) && column.limit)
               options['maxlength'] ||= max_length
               options['size'] ||= [ActionView::Helpers::InstanceTag::DEFAULT_FIELD_OPTIONS['size'], max_length].min
             end
