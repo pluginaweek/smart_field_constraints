@@ -1,12 +1,9 @@
 = smart_field_constraints
 
-+smart_field_constraints+ 
++smart_field_constraints+ intelligently applies a maxlength attribute for text
+fields based on column constraints and validations.
 
 == Resources
-
-Announcement
-
-* http://www.pluginaweek.org
 
 Wiki
 
@@ -18,20 +15,46 @@ API
 
 Development
 
-* http://dev.pluginaweek.org/browser/trunk/plugins/action_pack/smart_field_constraints
+* http://dev.pluginaweek.org/browser/trunk/smart_field_constraints
 
 Source
 
-* http://svn.pluginaweek.org/trunk/plugins/action_pack/smart_field_constraints
+* http://svn.pluginaweek.org/trunk/smart_field_constraints
 
 == Description
 
+HTML input field restrictions within forms can often help with both validation
+and improving the user experience. Normally, adding the +maxlength+ configuration
+option for input fields is not DRY and duplicates data already available in the
+model or database. This plugin helps make this automatic.
 
++smart_field_cosntraints+ looks in two places for determining the maxlength value
+for an input field:
+* Model validates_length_of validations
+* Database column definitions (limits specifically)
+
+Model validations will always take preference over database column definitions.
 
 == Usage
 
+There's nothing that you need to change to be able to use this plugin. It'll
+just start automatically adding the +maxlength+ values it finds based on the
+information described above (unless you define that option yourself).
 
+=== Example
 
-== References
+Model:
+  class User < ActiveRecord::Base
+    validates_length_of :login, :maximum => 12
+  end
 
+View:
+  text_field(:user, :login)
 
+HTML:
+  <input id="user_login" maxlength="12" name="user[login]" size="30" type="text" />
+
+== Testing
+
+Before you can run any tests, the following gem must be installed:
+* plugin_test_helper[http://wiki.pluginaweek.org/Plugin_test_helper]

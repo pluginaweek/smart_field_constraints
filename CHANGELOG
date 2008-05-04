@@ -1,3 +1,13 @@
 *SVN*
 
+*0.0.1* (May 5th, 2008)
+
+* Initial public release
+
+* Add documentation
+
+* Remove maxlength attribute for textare tags since it's not valid html
+
+* Don't set the size based on the smart maxlength
+
 * Don't expect columns to exist for every attribute
