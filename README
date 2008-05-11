@@ -54,6 +54,15 @@ View:
 HTML:
   <input id="user_login" maxlength="12" name="user[login]" size="30" type="text" />
 
+=== Textarea maxlengths
+
+Since the +maxlength+ attribute is not W3C-compliant for textareas, it is not
+included in the types of fields that will be automatically assigned length
+constraints.  However, you can easily add this yourself by extending the plugin
+like done at http://dev.pluginaweek.org/ticket/2.
+
+== Caveats
+
 === Plugin load order
 
 If you have plugins with models that are loaded *before* smart_field_constraints
