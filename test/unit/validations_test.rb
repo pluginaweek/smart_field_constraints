@@ -42,3 +42,20 @@ class ModelWithLengthValidationsTest < Test::Unit::TestCase
     User.smart_length_constraints.clear
   end
 end
+
+class ModelWithSizeValidationsTest < Test::Unit::TestCase
+  def test_should_track_constraints
+    User.validates_size_of :name, :maximum => 10
+    assert_equal 10, User.smart_length_constraints['name']
+  end
+  
+  def teardown
+    User.class_eval do
+      ActiveRecord::Validations::VALIDATIONS.each do |validation|
+        instance_variable_set("@#{validation}_callbacks", nil)
+      end
+    end
+    
+    User.smart_length_constraints.clear
+  end
+end

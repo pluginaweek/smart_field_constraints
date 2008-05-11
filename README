@@ -54,6 +54,21 @@ View:
 HTML:
   <input id="user_login" maxlength="12" name="user[login]" size="30" type="text" />
 
+=== Plugin load order
+
+If you have plugins with models that are loaded *before* smart_field_constraints
+is loaded, then any length validations defined in those models will *not* be
+tracked and automatically used in form fields.  To fix this, you can adjust your
+application's plugin load order to ensure that smart_field_constraints is loaded
+first:
+
+config/environment.rb:
+  Rails::Initializer.run do |config|
+    ...
+    config.plugins = [:smart_field_constraints, :all]
+    ...
+  end
+
 == Testing
 
 Before you can run any tests, the following gem must be installed:

@@ -11,15 +11,20 @@ module PluginAWeek #:nodoc:
         
         # Applies constraints for the given field
         def to_input_field_tag_with_smart_constraints(field_type, options = {})
-          options.stringify_keys!
-          
           # Only check password and text fields
-          if %w(password text).include?(field_type) && !options['maxlength'] && object
+          add_max_length_constraints(options) if %w(password text).include?(field_type)
+          
+          to_input_field_tag_without_smart_constraints(field_type, options)
+        end
+        
+        private
+          def add_max_length_constraints(options)
+            options.stringify_keys!
+            return if options['maxlength'] || !object
+            
             # Look for the attribute's maximum length from tracked validations or
             # the column's definition
-            max_length = object.class.smart_length_constraints[method_name] || (column = object.class.columns_hash[method_name]) && column.limit
-            
-            if max_length
+            if max_length = validation_length || column_limit
               # If the size isn't specified, use the caller's maxlength of the default value.
               # This must be done here, otherwise it'll use the maxlength value that
               # we apply here
@@ -28,8 +33,19 @@ module PluginAWeek #:nodoc:
             end
           end
           
-          to_input_field_tag_without_smart_constraints(field_type, options)
-        end
+          # Finds the maximum length according to validations
+          def validation_length
+            if constraints = object.class.smart_length_constraints
+              constraints[method_name]
+            end
+          end
+          
+          # Finds the maximum length according to column limits
+          def column_limit
+            if column = object.class.columns_hash[method_name]
+              column.limit
+            end
+          end
       end
     end
   end

@@ -87,3 +87,16 @@ class FormHelperWithColumnConstraintsTest < Test::Unit::TestCase
     assert_equal '<input id="user_login" maxlength="100" name="user[login]" size="100" type="text" />', text_field(:user, :login, :maxlength => 100)
   end
 end
+
+class FormHelperForModelNotTrackedTest < Test::Unit::TestCase
+  include ActionView::Helpers::TagHelper
+  include ActionView::Helpers::FormHelper
+  
+  def setup
+    @tag = Tag.new
+  end
+  
+  def test_should_add_maxlength_based_on_column_constraints
+    assert_equal '<input id="tag_name" maxlength="100" name="tag[name]" size="30" type="text" />', text_field(:tag, :name)
+  end
+end

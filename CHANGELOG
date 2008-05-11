@@ -1,5 +1,11 @@
 *SVN*
 
+* Don't check length validation constraints if models were loaded prior to the plugin being loaded [grosser]
+
+* Refactor FormHelper extension to allow for others to easily extend the plugin for things like textarea lengths [grosser]
+
+* Add support for tracking validates_size_of validations
+
 *0.0.1* (May 5th, 2008)
 
 * Initial public release
