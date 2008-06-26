@@ -5,21 +5,21 @@ fields based on column constraints and validations.
 
 == Resources
 
-Wiki
-
-* http://wiki.pluginaweek.org/Smart_field_constraints
-
 API
 
 * http://api.pluginaweek.org/smart_field_constraints
 
+Bugs
+
+* http://pluginaweek.lighthouseapp.com/projects/13287-smart_field_constraints
+
 Development
 
-* http://dev.pluginaweek.org/browser/trunk/smart_field_constraints
+* http://github.com/pluginaweek/smart_field_constraints
 
 Source
 
-* http://svn.pluginaweek.org/trunk/smart_field_constraints
+* git://github.com/pluginaweek/smart_field_constraints.git
 
 == Description
 
@@ -59,7 +59,7 @@ HTML:
 Since the +maxlength+ attribute is not W3C-compliant for textareas, it is not
 included in the types of fields that will be automatically assigned length
 constraints.  However, you can easily add this yourself by extending the plugin
-like done at http://dev.pluginaweek.org/ticket/2.
+yourself.
 
 == Caveats
 
@@ -81,7 +81,7 @@ config/environment.rb:
 == Testing
 
 Before you can run any tests, the following gem must be installed:
-* plugin_test_helper[http://wiki.pluginaweek.org/Plugin_test_helper]
+* plugin_test_helper[http://github.com/pluginaweek/plugin_test_helper]
 
 To run against a specific version of Rails:
 
