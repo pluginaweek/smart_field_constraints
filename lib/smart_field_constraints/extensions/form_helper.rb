@@ -1,7 +1,8 @@
 module PluginAWeek #:nodoc:
   module SmartFieldConstraints
     module Extensions #:nodoc:
-      # Automatically applies maximum length for an input field if it can be determined
+      # Automatically applies the maximum length for an input field if it can be
+      # determined
       module InstanceTag
         def self.included(base) #:nodoc:
           base.class_eval do
@@ -9,7 +10,7 @@ module PluginAWeek #:nodoc:
           end
         end
         
-        # Applies constraints for the given field
+        # Apply constraints for the given field
         def to_input_field_tag_with_smart_constraints(field_type, options = {})
           # Only check password and text fields
           add_max_length_constraints(options) if %w(password text).include?(field_type)

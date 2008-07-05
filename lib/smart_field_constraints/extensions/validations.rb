@@ -2,7 +2,7 @@ module PluginAWeek #:nodoc:
   module SmartFieldConstraints
     module Extensions #:nodoc:
       # Tracks validations on the length of fields so that they can be used when
-      # generate form tags for those fields
+      # generating form tags for those fields
       module Validations
         def self.included(base) #:nodoc:
           base.class_eval do
@@ -23,15 +23,15 @@ module PluginAWeek #:nodoc:
             end
           end
           
-          # Tracks what the maximum value that's allowed for all of the attributes
-          # being validated
+          # Tracks what the maximum value is that's allowed for all of the
+          # attributes being validated
           def validates_length_of_with_smart_constraints(*attrs)
             track_length_constraints(attrs)
             validates_length_of_without_smart_constraints(*attrs)
           end
           
-          # Tracks what the maximum value that's allowed for all of the attributes
-          # being validated
+          # Tracks what the maximum value is that's allowed for all of the
+          # attributes being validated
           def validates_size_of_with_smart_constraints(*attrs)
             track_length_constraints(attrs)
             validates_size_of_without_smart_constraints(*attrs)

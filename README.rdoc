@@ -28,9 +28,9 @@ and improving the user experience. Normally, adding the +maxlength+ configuratio
 option for input fields is not DRY and duplicates data already available in the
 model or database. This plugin helps make this automatic.
 
-+smart_field_cosntraints+ looks in two places for determining the maxlength value
++smart_field_constraints+ looks in two places for determining the maxlength value
 for an input field:
-* Model validates_length_of validations
+* Model validates_length_of/validates_size_of validations
 * Database column definitions (limits specifically)
 
 Model validations will always take preference over database column definitions.
