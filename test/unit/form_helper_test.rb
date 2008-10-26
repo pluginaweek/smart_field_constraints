@@ -1,8 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class FormHelperWithoutConstraintsTest < Test::Unit::TestCase
-  include ActionView::Helpers::TagHelper
-  include ActionView::Helpers::FormHelper
+class FormHelperWithoutConstraintsTest < ActionView::TestCase
+  tests ActionView::Helpers::FormHelper
   
   def setup
     @user = User.new
@@ -17,9 +16,8 @@ class FormHelperWithoutConstraintsTest < Test::Unit::TestCase
   end
 end
 
-class FormHelperWithValidationConstraintsTest < Test::Unit::TestCase
-  include ActionView::Helpers::TagHelper
-  include ActionView::Helpers::FormHelper
+class FormHelperWithValidationConstraintsTest < ActionView::TestCase
+  tests ActionView::Helpers::FormHelper
   
   def setup
     User.validates_length_of :biography, :maximum => 120
@@ -59,9 +57,8 @@ class FormHelperWithValidationConstraintsTest < Test::Unit::TestCase
   end
 end
 
-class FormHelperWithColumnConstraintsTest < Test::Unit::TestCase
-  include ActionView::Helpers::TagHelper
-  include ActionView::Helpers::FormHelper
+class FormHelperWithColumnConstraintsTest < ActionView::TestCase
+  tests ActionView::Helpers::FormHelper
   
   def setup
     @user = User.new
@@ -88,9 +85,8 @@ class FormHelperWithColumnConstraintsTest < Test::Unit::TestCase
   end
 end
 
-class FormHelperForModelNotTrackedTest < Test::Unit::TestCase
-  include ActionView::Helpers::TagHelper
-  include ActionView::Helpers::FormHelper
+class FormHelperForModelNotTrackedTest < ActionView::TestCase
+  tests ActionView::Helpers::FormHelper
   
   def setup
     @tag = Tag.new
