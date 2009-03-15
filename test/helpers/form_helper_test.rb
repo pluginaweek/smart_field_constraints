@@ -57,7 +57,7 @@ class FormHelperWithValidationConstraintsTest < ActionView::TestCase
   end
 end
 
-class FormHelperWithColumnConstraintsTest < ActionView::TestCase
+class FormHelperWithStringColumnConstraintsTest < ActionView::TestCase
   tests ActionView::Helpers::FormHelper
   
   def setup
@@ -82,6 +82,18 @@ class FormHelperWithColumnConstraintsTest < ActionView::TestCase
   
   def test_should_allow_maxlength_to_be_overridden
     assert_equal '<input id="user_login" maxlength="100" name="user[login]" size="100" type="text" />', text_field(:user, :login, :maxlength => 100)
+  end
+end
+
+class FormHelperWithNumberColumnConstraintsTest < ActionView::TestCase
+  tests ActionView::Helpers::FormHelper
+  
+  def setup
+    @user = User.new
+  end
+  
+  def test_should_add_maxlength
+    assert_equal '<input id="user_id" maxlength="11" name="user[id]" size="30" type="text" />', text_field(:user, :id)
   end
 end
 

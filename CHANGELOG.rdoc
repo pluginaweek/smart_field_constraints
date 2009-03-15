@@ -1,5 +1,7 @@
 == master
 
+* Fix limits for integer columns being interpreted incorrectly [Michael Grosser]
+
 == 0.1.0 / 2008-12-14
 
 * Remove the PluginAWeek namespace
@@ -8,8 +10,8 @@
 == 0.0.2 / 2008-06-22
 
 * Remove log files from gems
-* Don't check length validation constraints if models were loaded prior to the plugin being loaded [grosser]
-* Refactor FormHelper extension to allow for others to easily extend the plugin for things like textarea lengths [grosser]
+* Don't check length validation constraints if models were loaded prior to the plugin being loaded [Michael Grosser]
+* Refactor FormHelper extension to allow for others to easily extend the plugin for things like textarea lengths [Michael Grosser]
 * Add support for tracking validates_size_of validations
 
 == 0.0.1 / 2008-05-05

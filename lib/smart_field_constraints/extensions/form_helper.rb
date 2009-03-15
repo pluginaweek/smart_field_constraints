@@ -42,8 +42,15 @@ module SmartFieldConstraints
         
         # Finds the maximum length according to column limits
         def column_limit
-          if column = object.class.columns_hash[method_name]
-            column.limit
+          column = object.class.columns_hash[method_name]
+          
+          if column && limit = column.limit
+            if column.text?
+              limit
+            elsif column.number?
+              # Length is bound by the upper limit of the number + 1 (for negatives)
+              Math.log10(2 ** (limit * 8 - 1)).ceil + 1
+            end
           end
         end
     end
