@@ -59,7 +59,7 @@ HTML:
 Since the +maxlength+ attribute is not W3C-compliant for textareas, it is not
 included in the types of fields that will be automatically assigned length
 constraints.  However, you can easily add this yourself by extending the plugin
-yourself.
+yourself.  For an example of this see smart_field_constraints_textarea[http://github.com/grosser/smart_field_constraints_textarea].
 
 == Caveats
 
