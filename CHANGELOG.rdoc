@@ -1,5 +1,7 @@
 == master
 
+== 0.1.1 / 2009-03-15
+
 * Fix limits for integer columns being interpreted incorrectly [Michael Grosser]
 
 == 0.1.0 / 2008-12-14
