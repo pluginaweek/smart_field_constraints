@@ -1,12 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 
-class ModelWithoutLengthValidationsTest < Test::Unit::TestCase
+class ModelWithoutLengthValidationsTest < ActiveSupport::TestCase
   def test_should_not_have_any_constraints
     assert User.smart_length_constraints.empty?
   end
 end
 
-class ModelWithLengthValidationsTest < Test::Unit::TestCase
+class ModelWithLengthValidationsTest < ActiveSupport::TestCase
   def test_should_not_track_constraint_for_minimum
     User.validates_length_of :name, :minimum => 1
     assert_nil User.smart_length_constraints['name']
@@ -43,7 +43,7 @@ class ModelWithLengthValidationsTest < Test::Unit::TestCase
   end
 end
 
-class ModelWithSizeValidationsTest < Test::Unit::TestCase
+class ModelWithSizeValidationsTest < ActiveSupport::TestCase
   def test_should_track_constraints
     User.validates_size_of :name, :maximum => 10
     assert_equal 10, User.smart_length_constraints['name']
