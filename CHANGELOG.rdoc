@@ -1,5 +1,7 @@
 == master
 
+* Release gems via rake-gemcutter instead of rubyforge
+
 == 0.1.1 / 2009-03-15
 
 * Fix limits for integer columns being interpreted incorrectly [Michael Grosser]
