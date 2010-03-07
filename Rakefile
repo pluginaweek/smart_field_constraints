@@ -6,7 +6,7 @@ require 'rake/gempackagetask'
 
 spec = Gem::Specification.new do |s|
   s.name              = 'smart_field_constraints'
-  s.version           = '0.1.1'
+  s.version           = '0.1.2'
   s.platform          = Gem::Platform::RUBY
   s.summary           = 'Intelligently applies a maxlength attribute for text fields based on column constraints and validations'
   s.description       = s.summary
