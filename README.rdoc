@@ -7,7 +7,7 @@ fields based on column constraints and validations.
 
 API
 
-* http://rdoc.info/projects/pluginaweek/smart_field_constraints
+* http://rdoc.info/github/pluginaweek/smart_field_constraints/master/frames
 
 Bugs
 
