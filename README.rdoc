@@ -11,7 +11,7 @@ API
 
 Bugs
 
-* http://pluginaweek.lighthouseapp.com/projects/13287-smart_field_constraints
+* http://github.com/pluginaweek/smart_field_constraints/issues
 
 Development
 
