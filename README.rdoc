@@ -21,6 +21,10 @@ Source
 
 * git://github.com/pluginaweek/smart_field_constraints.git
 
+Mailing List
+
+* http://groups.google.com/group/pluginaweek-talk
+
 == Description
 
 HTML input field restrictions within forms can often help with both validation
