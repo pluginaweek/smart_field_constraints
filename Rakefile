@@ -2,7 +2,6 @@ require 'rubygems'
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
-require 'rake/gempackagetask'
 
 spec = Gem::Specification.new do |s|
   s.name              = 'smart_field_constraints'
