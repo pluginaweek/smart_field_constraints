@@ -1,4 +1,4 @@
-= smart_field_constraints
+= smart_field_constraints http://travis-ci.org/pluginaweek/smart_field_constraints.png
 
 +smart_field_constraints+ intelligently applies a maxlength attribute for text
 fields based on column constraints and validations.
@@ -16,6 +16,10 @@ Bugs
 Development
 
 * http://github.com/pluginaweek/smart_field_constraints
+
+Testing
+
+* http://travis-ci.org/pluginaweek/smart_field_constraints
 
 Source
 
